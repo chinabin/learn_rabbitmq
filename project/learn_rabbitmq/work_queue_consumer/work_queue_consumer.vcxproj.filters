@@ -27,6 +27,9 @@
     <ClCompile Include="Round_robin_dispatching.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="confirm_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\amqp_wrapper.h">
