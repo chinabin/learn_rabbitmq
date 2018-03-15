@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClCompile Include="..\include\amqp_wrapper.cpp" />
     <ClCompile Include="..\include\utils.c" />
+    <ClCompile Include="consumer_auto_ack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Round_robin_dispatching.cpp" />
   </ItemGroup>

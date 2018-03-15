@@ -33,6 +33,9 @@
     <ClCompile Include="confirm_when_msg_in_queue_demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="consumer_auto_ack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\amqp_wrapper.h">
