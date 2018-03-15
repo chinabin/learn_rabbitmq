@@ -152,6 +152,7 @@
     <ClCompile Include="..\include\amqp_wrapper.cpp" />
     <ClCompile Include="..\include\utils.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Round_robin_dispatching.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\amqp_wrapper.h" />
