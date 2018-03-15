@@ -30,6 +30,9 @@
     <ClCompile Include="confirm_demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="confirm_when_msg_in_queue_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\amqp_wrapper.h">
