@@ -23,30 +23,41 @@ int consumer(config_for_consumer *config)
 	// 消费消息
 	{
 		set_consume(conn, config->channel_id, queue_name, amqp_empty_bytes, config->no_local, config->no_ack);
-		for (;;)
+
+		printf("请确定确认模式\n");
+		return 1;
+		// 自动确认
 		{
-			amqp_envelope_t envelope;
+			consume_message(conn);
+		}
+		
+		// 手动确认
+		{
+			for (;;)
 			{
-				if (get_envelope(conn, &envelope))
+				amqp_envelope_t envelope;
 				{
-					printf("get envelope failed\n");
-					return 1;
+					if (get_envelope(conn, &envelope))
+					{
+						printf("get envelope failed\n");
+						return 1;
+					}
+
+					printf("Delivery tag %u, exchange %.*s routingkey %.*s\n",
+						(unsigned)envelope.delivery_tag, (int)envelope.exchange.len,
+						(char *)envelope.exchange.bytes, (int)envelope.routing_key.len,
+						(char *)envelope.routing_key.bytes);
+
+					if (envelope.message.properties._flags & AMQP_BASIC_CONTENT_TYPE_FLAG) {
+						printf("Content-type: %.*s\n",
+							(int)envelope.message.properties.content_type.len,
+							(char *)envelope.message.properties.content_type.bytes);
+					}
+					printf("----\n");
+
+					amqp_basic_ack(conn, config->channel_id, envelope.delivery_tag, 0);
+					amqp_destroy_envelope(&envelope);
 				}
-
-				printf("Delivery tag %u, exchange %.*s routingkey %.*s\n",
-					(unsigned)envelope.delivery_tag, (int)envelope.exchange.len,
-					(char *)envelope.exchange.bytes, (int)envelope.routing_key.len,
-					(char *)envelope.routing_key.bytes);
-
-				if (envelope.message.properties._flags & AMQP_BASIC_CONTENT_TYPE_FLAG) {
-					printf("Content-type: %.*s\n",
-						(int)envelope.message.properties.content_type.len,
-						(char *)envelope.message.properties.content_type.bytes);
-				}
-				printf("----\n");
-
-				amqp_basic_ack(conn, config->channel_id, envelope.delivery_tag, 0);
-				amqp_destroy_envelope(&envelope);
 			}
 		}
 	}
