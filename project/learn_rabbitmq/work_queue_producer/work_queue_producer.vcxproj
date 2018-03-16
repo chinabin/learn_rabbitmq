@@ -153,7 +153,6 @@
     <ClCompile Include="..\include\utils.c" />
     <ClCompile Include="confirm_demo.cpp" />
     <ClCompile Include="confirm_when_msg_in_queue_demo.cpp" />
-    <ClCompile Include="consumer_auto_ack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Round_robin_dispatching.cpp" />
   </ItemGroup>
