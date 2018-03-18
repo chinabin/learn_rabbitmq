@@ -89,12 +89,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Administrator\Desktop\learn_rabbitmq\project\learn_rabbitmq\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\Projects\Git\learn_rabbitmq\project\learn_rabbitmq\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Administrator\Desktop\learn_rabbitmq\project\learn_rabbitmq\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>E:\Projects\Git\learn_rabbitmq\project\learn_rabbitmq\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>rabbitmq.4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
