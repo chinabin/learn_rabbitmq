@@ -5,11 +5,10 @@
 #include <stdio.h>
 #include <windows.h>
 
+#pragma warning (disable:4996)
+
 int message_result(amqp_connection_state_t conn)
 {
-	/* Publish消息后需要在当前通道上监听返回的信息，来判断消息是否成功投递
-	* 这里要息根据投递消息的方式来过滤判断几个方法
-	*/
 	amqp_frame_t frame;
 	amqp_rpc_reply_t ret;
 
@@ -29,7 +28,7 @@ int message_result(amqp_connection_state_t conn)
 		{
 			amqp_basic_ack_t *s;
 			s = (amqp_basic_ack_t *)method.decoded;
-			fprintf(stdout, "Ack.delivery_tag=%d\n", s->delivery_tag);
+			fprintf(stdout, "Ack.delivery_tag=%d\n", (int)s->delivery_tag);
 			fprintf(stdout, "Ack.multiple=%d\n", s->multiple);
 		}
 
@@ -42,7 +41,7 @@ int message_result(amqp_connection_state_t conn)
 		{
 			amqp_basic_nack_t *s;
 			s = (amqp_basic_nack_t *)method.decoded;
-			fprintf(stdout, "NAck.delivery_tag=%d\n", s->delivery_tag);
+			fprintf(stdout, "NAck.delivery_tag=%d\n", (int)s->delivery_tag);
 			fprintf(stdout, "NAck.multiple=%d\n", s->multiple);
 			fprintf(stdout, "NAck.requeue=%d\n", s->requeue);
 		}

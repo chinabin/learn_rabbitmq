@@ -18,12 +18,13 @@
 //	declare_exchange(conn, config->channel_id, config->exchange_name
 //		, config->exchange_type, config->exchange_durable);
 //
+//	set_channel_confirm(conn, config->channel_id);
 //	// 创建队列
 //	amqp_bytes_t queue_name;
 //	amqp_queue_declare_ok_t *r = declare_queue(conn, config->channel_id, config->queue_name, config->queue_durable, config->queue_exclusive);
 //	queue_name = amqp_bytes_malloc_dup(r->queue);
 //	printf("生产者 队列名称: %.*s\n", (int)queue_name.len, (char *)queue_name.bytes);
-//	
+//
 //	// 绑定
 //	bind_queue_exchange(conn, config->channel_id, queue_name, amqp_cstring_bytes(config->exchange_name), amqp_cstring_bytes(config->bind_key));
 //
@@ -33,7 +34,7 @@
 //		, amqp_cstring_bytes(config->bind_key)
 //		, config->mandatory
 //		, config->immediate, amqp_cstring_bytes(config->message));
-//	// message_result(conn);
+//	message_result(conn);
 //
 //	// 关闭清理
 //	{
@@ -70,7 +71,7 @@
 //	config.queue_exclusive = 0;
 //
 //	config.bind_key = argv[3];
-//	config.mandatory = 0;
+//	config.mandatory = 1;
 //	config.immediate = 0;
 //
 //	config.message = argv[4];
