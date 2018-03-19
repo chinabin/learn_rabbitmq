@@ -18,15 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hello_world.cpp">
+    <ClCompile Include="..\include\amqp_wrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="utils.c">
+    <ClCompile Include="..\include\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="utils.h">
+    <ClInclude Include="..\include\amqp_wrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
